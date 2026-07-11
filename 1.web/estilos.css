@@ -1,0 +1,58 @@
+/*
+- Mobile: 375px - Desktop: 1440px>💡 
+  ## Colors ### 
+  Primary -  #25273c
+  secondary -  #181724
+  contrast - #ffffff
+  Blue 500: hsl(220, 98%, 61%) -
+   Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+*/
+:root{
+  --color-primario: #25273c;
+  --color-secundario: #181724;
+  --color-contraste: #ffffff
+}
+
+*{
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+   background-color: red;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+}
+
+#contenedor{
+   background-color: blue;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+#contenedor-input {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+input[type="text"]{
+  background: var(--color-primario);
+  color: var(--color-contraste);
+  text-align: left;
+  font-size: 18px;
+  width: 100%; 
+  padding: 10px;  
+  margin-bottom: 10px ;
+  overflow: hidden;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px #000000;
+  font-weight: 300;
+}
