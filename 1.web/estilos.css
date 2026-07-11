@@ -5,7 +5,7 @@
   secondary -  #181724
   contrast - #ffffff
   Blue 500: hsl(220, 98%, 61%) -
-   Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+   Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%).
 */
 :root{
   --color-primario: #25273c;
