@@ -1,64 +1,158 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>App de gestión de tareas</title>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="app para el curso de fullstack 23" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./estilos.css" />
+    <title>To-Do List</title>
+    <style>
+      /* General */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(to right, #310d67, #82288d);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #1c1f26;
+        padding: 2rem;
+        width: 400px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+
+      /* Input Section */
+      .input-section {
+        display: flex;
+        margin-bottom: 1rem;
+      }
+
+      #todo-input {
+        flex: 1;
+        padding: 0.8rem;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+      }
+
+      #add-btn {
+        background-color: #6b3faf;
+        color: #fff;
+        border: none;
+        padding: 0.8rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 0.5rem;
+        font-weight: bold;
+      }
+
+      #add-btn:hover {
+        background-color: #8b4dc4;
+      }
+
+      /* To-Do List */
+      #todo-list {
+        list-style: none;
+      }
+
+      #todo-list li {
+        background-color: #2c2f36;
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5px;
+      }
+
+      .todo-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .todo-item input {
+        margin-right: 0.5rem;
+      }
+
+      .todo-item.completed span {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      /* Footer */
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .footer button {
+        background: none;
+        border: none;
+        color: #bbb;
+        cursor: pointer;
+      }
+
+      .footer button.active,
+      .footer button:hover {
+        color: #fff;
+      }
+
+      #clear-completed {
+        color: #d9534f;
+      }
+    </style>
   </head>
   <body>
-    <!-- Contentenedor -->
-    <div id="contenedor">
-      <div id="contenedor-input">
-        <h1>todo list</h1>
-        <input type="text" />
+    <div class="container">
+      <h1>TODO</h1>
+      <div class="input-section">
+        <input type="text" id="todo-input" placeholder="Create a new todo..." />
+        <button id="add-btn">+</button>
       </div>
-      <div>
-        <div>
-          <div>
-            <ul>
-              <li>
-                <input type="radio" />Lorem ipsum, dolor sit amet consectetur
-                <button>ejemplo</button>
-              </li>
-              <li>
-                <input type="radio" />Lorem ipsum, dolor sit amet consectetur
-              </li>
-              <li>
-                <input type="radio" />Lorem ipsum, dolor sit amet consectetur
-              </li>
-              <li>
-                <input type="radio" />Lorem ipsum, dolor sit amet consectetur
-              </li>
-              <li>
-                <input type="radio" />Lorem ipsum, dolor sit amet consectetur
-              </li>
-              <li>
-                <input type="radio" />Lorem ipsum, dolor sit amet consectetur
-              </li>
-            </ul>
+      <ul id="todo-list">
+        <li>
+          <div class="todo-item">
+            <input type="checkbox" />
+            <span>tarea 1</span>
           </div>
-          <div>
-            <div>items</div>
-            <div>
-              <a href="">all</a>
-              <a href="">active</a>
-              <a href="">completed</a>
-            </div>
-            <div>
-              <a href="">clear completed</a>
-            </div>
-          </div>
+          <button>✖</button>
+        </li>
+      </ul>
+      <div class="footer">
+        <span id="items-left">0 items left</span>
+        <div class="filters">
+          <button id="filter-all" class="filter-btn active">All</button>
+          <button id="filter-active" class="filter-btn">Active</button>
+          <button id="filter-completed" class="filter-btn">Completed</button>
         </div>
-        <div></div>
+        <button id="clear-completed">Clear Completed</button>
       </div>
     </div>
   </body>
