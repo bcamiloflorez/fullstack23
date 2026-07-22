@@ -4,7 +4,6 @@ let todolist = document.getElementById("todo-list");
 
 let agregarTareaBtn = document.getElementById("add-btn");
 let tareaTxt = document.getElementById("todo-input");
-let eliminarTareaBtn = document.getElementById("eliminarTarea");
 const inputTxt = document.getElementById("todo-input");
 let filtroActual = "all"
 let filterAll = document.getElementById("filter-all");
@@ -30,11 +29,6 @@ agregarTareaBtn.addEventListener("click", () => {
   renderizarTareas();
 });
 
-/*eliminarTareaBtn.addEventListener("click", () => {
-  eliminarTarea();
-  renderizarTareas();
-});*/
-
 inputTxt.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     tareas.push({
@@ -47,9 +41,14 @@ inputTxt.addEventListener("keydown", (event) => {
 });
 
 todolist.addEventListener("click",(evento)=>{
+  const index = evento.target.dataset.index
   if (evento.target.tagName=="INPUT" || evento.target.tagName=="SPAN") {
-    const index = evento.target.dataset.index
     tareas[index].estado = !tareas[index].estado
+  }
+  if (evento.target.id == "eliminarTarea") {
+    console.log("se elimino", tareas[index])
+    tareas.splice([index],1)
+    renderizarTareas();
   }
 })
 
